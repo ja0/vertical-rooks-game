@@ -5,11 +5,12 @@ body {
 
 canvas {
 	margin: auto;
+	margin-bottom: 200px;
 }
 .instructions {
-	font-size: 14px;
+	font-size: 12px;
 	text-align: justify;
-	width: 600px;
+	width: 800px;
 	padding: 10px;
 	margin: auto;
 	border: 1px solid black;
