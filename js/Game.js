@@ -84,7 +84,7 @@ function initRedRooks() {
 			this.column = getColumnIndex(this.uiRook);
 
 			if (playerLost('green')) {
-				updateGameInfoText('Game ower, you lost!');
+				updateGameInfoText('Game over, you lost!');
 			}
 		};
 		redRooks.push(rook);
@@ -188,7 +188,7 @@ function moveRook(rook, row, column, withAnimation) {
 		rook.column = column;
 		drawRook(rook);
 		if (playerLost('red')) {
-			updateGameInfoText('Game ower, you win!');
+			updateGameInfoText('Game over, you win!');
 		} else {
 			onComputerTurn();
 		}
@@ -196,11 +196,13 @@ function moveRook(rook, row, column, withAnimation) {
 }
 
 function getColumnIndex(uiRook) {
-	return Math.round(Math.max(0, uiRook.x) / CELL_WIDTH);
+	var columnIndex = Math.round(Math.max(0, uiRook.x) / CELL_WIDTH);
+	return Math.min(columnIndex, COL_COUNT - 1);
 }
 
 function getRowIndex(uiRook) {
-	return Math.round(Math.max(0, uiRook.y - TOOL_BAR_HEIGHT) / CELL_HEIGHT);
+	var rowIndex = Math.round(Math.max(0, uiRook.y - TOOL_BAR_HEIGHT) / CELL_HEIGHT);
+	return Math.min(rowIndex, ROW_COUNT - 1);
 }
 
 function random(fromNumber, toNumber, toExclude) {
